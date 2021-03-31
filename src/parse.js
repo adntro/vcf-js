@@ -2,11 +2,7 @@ import vcfReserved from './vcfReserved'
 
 class Breakend {
   toString() {
-    const char = this.MateDirection === 'left' ? ']' : '['
-    if (this.Join === 'left') {
-      return `${char}${this.MatePosition}${char}${this.Replacement}`
-    }
-    return `${this.Replacement}${char}${this.MatePosition}${char}`
+    return this.RawString
   }
 }
 
@@ -305,6 +301,7 @@ class VCF {
           }
         }
       }
+      parsed.RawString = breakendString
       return parsed
     }
     // if there is not more than one token, there are no [ or ] characters,
